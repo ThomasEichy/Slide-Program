@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form>
+            <select id="symbol">
+                <option>"#"</option>
+                <option>"$"</option>
+                <option>"@"</option>
+                <option>"X"</option>
+            </select>
+            <input type="range" id="high" min="0" max="20">
+            <p id="counter"></p>
+        </form>
+        <p id="pyramid"></p>
+        <script>
+            function makePyramid(symbol, height) {
+                document.getElementById("pyramid").innerHTML = "";
+                let spaceNum = height - 1;
+                document.getElementById("counter").innerHTML = "";
+                document.getElementById("counter").innerHTML = height;
+                
+                for (i = 0; i < height; i++) {
+                    let sym = "";
+                    
+                    for (x = spaceNum; x >= 0 ; x--) {
+                        sym += " ";
+                    }
+                    for (y = 0; y < i ; y++) {
+                        sym += symbol;
+                    }
+                }
+            }
+            function addEventListener() {
+                
+            }
+            document.getElementById("symbol").addEventListener("onchange", makePyramid(document.getElementById("symbol").value, document.getElementById("high").value));
+            document.getElementById("high").addEventListener("onchange", makePyramid(document.getElementById("symbol").value, document.getElementById("high").value));
+        </script>
+    </body>
+</html>
